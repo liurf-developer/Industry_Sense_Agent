@@ -11,6 +11,27 @@ const REPORT_META = {
   headline: "Agentic Manufacturing × Digital Twin × Physical AI"
 };
 
+// 本期首页信号：每周只在数据层维护，页面会自动渲染。
+const WEEKLY_SIGNALS = [
+  { title: "AI 从 Pilot 进入 Scale", insight: "判断标准转向跨工厂复制能力与持续制造 KPI。" },
+  { title: "Agent 进入工程与运营工具链", insight: "价值焦点转向调用工具、编排任务与验证结果。" },
+  { title: "Digital Twin 成为 AI 验证环境", insight: "虚拟调试、Agent 决策验证与 Physical AI 训练开始汇合。" },
+  { title: "Physical AI 开始产品化", insight: "仿真、合成数据、Sim-to-Real 与机器人部署形成工程闭环。" }
+];
+
+// 成熟度使用稳定枚举参与统计与筛选；历史中文值通过映射兼容。
+const MATURITY_LABELS = {
+  research: "研究", concept: "概念/趋势", announced: "已发布",
+  pilot: "试验/试点", product: "产品", production: "生产采用", scale: "规模化"
+};
+
+const MATURITY_LEGACY_MAP = {
+  "研究": "research", "趋势": "concept", "战略/试验": "concept",
+  "即将发布": "announced", "试验": "pilot", "试点": "pilot",
+  "蓝图/试验": "pilot", "产品/试验": "pilot", "产品": "product",
+  "试验→采用": "production", "规模化": "scale"
+};
+
 const MANUFACTURING_STAGES = [
   "产品研发",
   "工艺工程",

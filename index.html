@@ -1,78 +1,80 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>智能制造 AI 情报报告</title>
-<link rel="stylesheet" href="styles.css"/>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Manufacturing AI Radar</title>
+  <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
-<div class="topbar"><div class="topbar-inner">
-  <div class="brand">Manufacturing AI Radar</div>
-  <div class="navlinks">
-    <a href="#overview">趋势总览</a><a href="#map">AI地图</a><a href="#intelligence">情报卡片</a>
-  </div>
-</div></div>
-
-<header class="hero">
-  <div class="hero-inner">
-    <div class="eyebrow">Manufacturing AI Intelligence · <span id="reportDate">—</span></div>
-    <h1>从新闻里看懂智能制造 AI 正在往哪里走</h1>
-    <p>这份报告把行业趋势、技术趋势、新兴产品和前沿方案统一映射到 Manufacturing AI Map，帮助读者快速判断：发生了什么、为什么重要、影响哪个制造环节。</p>
-    <div class="hero-note">本期观察主线：Agentic Manufacturing × Digital Twin × Physical AI</div>
-  </div>
+<header class="topbar">
+  <a class="brand" href="#overview"><span class="brand-mark">M</span><span>Manufacturing<br><b>AI Radar</b></span></a>
+  <nav class="navlinks" aria-label="主导航"><a href="#overview">本周雷达</a><a href="#map">业务地图</a><a href="#intelligence">情报库</a></nav>
+  <div class="issue"><span id="reportIssue">—</span><b id="reportDate">—</b></div>
 </header>
 
 <main>
-<section class="section" id="overview">
-  <div class="section-head"><div><h2>趋势总览</h2><div class="section-sub">先用几个指标看清本期资料的结构，再进入具体新闻和报告。</div></div></div>
-  <div class="metric-grid">
-    <div class="metric"><strong id="metricTotal">—</strong><span>高价值情报条目</span></div>
-    <div class="metric"><strong id="metricImpact">—</strong><span>平均业务影响评分</span></div>
-    <div class="metric"><strong id="metricFrontier">—</strong><span>高前沿度条目（Novelty=5）</span></div>
-    <div class="metric"><strong id="metricMature">—</strong><span>已进入产品 / 采用 / 规模化阶段</span></div>
-  </div>
-  <div class="two-col" style="margin-top:18px">
-    <div class="panel">
-      <h3>Manufacturing AI Map 覆盖热度</h3><div style="font-size:12px;color:var(--muted);margin:-6px 0 10px">条目数越高，表示本期在该业务环节出现的高价值情报越集中。</div>
-      <div id="bars"></div>
+  <section class="hero" id="overview">
+    <div class="hero-copy">
+      <div class="eyebrow">Weekly intelligence / 智能制造 AI</div>
+      <h1>把一周的变化，<br>放回制造现场。</h1>
+      <p>为 AI 解决方案架构师提炼行业变化、技术栈、产品与前沿方案，并映射到真实制造环节。</p>
+      <div class="hero-note" id="heroHeadline">—</div>
     </div>
-    <div class="panel">
-      <h3>本期四个最强信号</h3>
-      <div class="signal-list">
-        <div class="signal-item"><b>1｜AI 从 Pilot 进入 Scale</b><span>灯塔网络的判断标准越来越看重跨工厂复制和制造 KPI。</span></div>
-        <div class="signal-item"><b>2｜Agent 开始进入工程与运营工具链</b><span>价值焦点从“回答问题”迁移到“调用工具、编排任务、验证结果”。</span></div>
-        <div class="signal-item"><b>3｜Digital Twin 正变成 AI 的验证环境</b><span>它开始承载虚拟调试、Agent 决策验证和 Physical AI 训练。</span></div>
-        <div class="signal-item"><b>4｜Physical AI 开始产品化</b><span>仿真、合成数据、Sim-to-Real 和机器人部署正在形成工程闭环。</span></div>
+    <div class="metric-grid" aria-label="本期指标">
+      <div class="metric metric-lead"><span>收录情报</span><strong id="metricTotal">—</strong><small>条 / 本期</small></div>
+      <div class="metric"><span>平均影响</span><strong id="metricImpact">—</strong></div>
+      <div class="metric"><span>高前沿度</span><strong id="metricFrontier">—</strong></div>
+      <div class="metric"><span>走向生产</span><strong id="metricMature">—</strong></div>
+    </div>
+  </section>
+
+  <section class="radar-layout" aria-label="本周情报工作台">
+    <aside class="map-panel panel" id="map">
+      <div class="panel-head"><div><span class="kicker">WHERE / 影响哪里</span><h2>Manufacturing AI Map</h2></div><span class="map-legend">深色 = 本期覆盖更集中</span></div>
+      <div class="map-grid" id="mapGrid"></div>
+      <div class="coverage-list" id="bars"></div>
+    </aside>
+
+    <section class="feed-panel" id="intelligence">
+      <div class="section-head"><div><span class="kicker">WHAT / 发生什么</span><h2>情报流</h2></div><div class="result-count" id="resultCount">—</div></div>
+      <div class="filters" aria-label="筛选情报">
+        <label class="search"><span>⌕</span><input id="q" type="search" placeholder="搜索厂商、Agent、Digital Twin…"/></label>
+        <select id="stage" aria-label="制造环节"><option value="">全部制造环节</option></select>
+        <select id="org" aria-label="来源机构"><option value="">全部机构</option></select>
+        <select id="maturity" aria-label="成熟度"><option value="">全部成熟度</option></select>
+        <select id="sort" aria-label="排序"><option value="date">最新发布</option><option value="impact">影响最高</option><option value="novelty">前沿度最高</option></select>
+        <button id="resetFilters" class="reset" type="button">清除筛选</button>
       </div>
-    </div>
-  </div>
-  <div class="architecture"><b>当前最值得记住的架构模式：</b><br><code>Industrial Context → Agent / Orchestrator → Engineering & Operations Tools → Digital Twin / Simulation → OT / Robot Execution → Feedback</code></div>
-</section>
+      <div class="library-tabs" id="tabs"></div>
+      <div class="cards" id="cards"></div>
+      <div class="empty" id="empty"><b>当前视图没有情报</b><span>调整关键词或清除筛选后继续浏览。</span><button type="button" data-reset>查看全部情报</button></div>
+    </section>
 
-<section class="section" id="map">
-  <div class="section-head"><div><h2>Manufacturing AI Map</h2><div class="section-sub">颜色越深表示本期资料覆盖越密集。点击任一业务环节，会自动跳到对应的新闻与报告。</div></div></div>
-  <div class="map-grid" id="mapGrid"></div>
-</section>
-
-<section class="section" id="intelligence">
-  <div class="section-head"><div><h2>新闻 / 报告情报卡片</h2><div class="section-sub">共 <span id="cardCount">—</span> 张情报卡片。每张卡片只保留：发生了什么、为什么重要、它影响 AI 地图里的哪里。</div></div></div>
-
-  <div class="searchbar">
-    <input id="q" type="search" placeholder="搜索厂商、Agent、Digital Twin、Physical AI…"/>
-    <select id="stage"><option value="">全部制造环节</option></select>
-    <select id="org"><option value="">全部机构</option></select>
-    <select id="maturity"><option value="">全部成熟度</option></select>
-  </div>
-
-  <div class="library-tabs" id="tabs"></div>
-  <div class="cards" id="cards"></div>
-  <div class="empty" id="empty">没有匹配的情报。可以清除筛选条件后再看。</div>
-</section>
-
-<footer>本报告用于智能制造 AI 行业观察。卡片中的“核心分析”属于基于公开资料的架构师判断；量化数字与厂商声明请以卡片所链接的原始来源为准。</footer>
+    <aside class="signals-panel panel">
+      <div class="panel-head"><div><span class="kicker">SO WHAT / 如何判断</span><h2>本周信号</h2></div></div>
+      <div class="signal-list" id="signals"></div>
+      <div class="architecture"><span>可复用架构模式</span><p>Industrial Context → Agent → Engineering Tools → Digital Twin → OT / Robot → Feedback</p></div>
+    </aside>
+  </section>
 </main>
 
+<dialog class="detail-dialog" id="detailDialog" aria-labelledby="detailTitle">
+  <div class="detail-shell">
+    <div class="detail-impact" id="detailImpact"></div>
+    <header class="detail-header">
+      <div><span class="kicker" id="detailLibrary">KNOWLEDGE DETAIL</span><h2 id="detailTitle">情报详情</h2></div>
+      <button class="detail-close" id="detailClose" type="button" aria-label="关闭详情">×</button>
+    </header>
+    <div class="detail-body" id="detailBody"></div>
+  </div>
+</dialog>
+
+<footer><span>Manufacturing AI Weekly Intelligence</span><p>核心分析基于公开资料；量化数字与厂商声明请以原始来源为准。</p></footer>
+
+<div class="fatal" id="fatal" role="alert"><b>情报数据未能加载</b><span>请确认 data.js 可访问且数据格式正确，然后刷新页面。</span></div>
+<noscript><div class="noscript">需要启用 JavaScript 才能加载本期 Manufacturing AI 情报。</div></noscript>
 <script src="data.js"></script>
 <script src="app.js"></script>
-</body></html>
+</body>
+</html>

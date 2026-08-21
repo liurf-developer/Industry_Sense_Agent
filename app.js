@@ -21,6 +21,14 @@
       ["title","summary","signal","url"].forEach(k => { if (!String(x[k] || "").trim()) errors.push(`${ref}: ${k} 不能为空`); });
       try { new URL(x.url); } catch (_) { errors.push(`${ref}: URL 格式错误`); }
       if (!maturityCode(x)) errors.push(`${ref}: 成熟度未映射 ${x.maturity}`);
+      if (x.issue && !/^\d{4}-W\d{2}$/.test(x.issue)) errors.push(`${ref}: issue 格式错误 ${x.issue}`);
+      ["publishedAt","discoveredAt","verifiedAt"].forEach(k => {
+        if (x[k] && !/^\d{4}-\d{2}-\d{2}$/.test(x[k])) errors.push(`${ref}: ${k} 日期格式错误`);
+      });
+      if (x.publishedAt && x.date !== x.publishedAt) errors.push(`${ref}: date 与 publishedAt 不一致`);
+      if (x.swot) ["strength","weakness","opportunity","threat"].forEach(k => {
+        if (!String(x.swot[k] || "").trim()) errors.push(`${ref}: swot.${k} 不能为空`);
+      });
     });
     errors.forEach(e => console.error(`[Data validation] ${e}`));
     return errors;
@@ -67,6 +75,7 @@
     $$(".tab").forEach(btn=>btn.addEventListener("click",()=>{activeLib=btn.dataset.lib;renderTabs();renderCards();}));
   }
   function swotFor(x) {
+    if (x.swot) return x.swot;
     const early = ["research","concept","announced","pilot"].includes(maturityCode(x));
     return {
       strength: x.signal,

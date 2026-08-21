@@ -6,17 +6,17 @@
 // =============================================================
 
 const REPORT_META = {
-  date: "2026-08-14",
-  issue: "2026-W33",
-  headline: "Agentic Manufacturing × Digital Twin × Physical AI"
+  date: "2026-08-21",
+  issue: "2026-W34",
+  headline: "Scale-up Economics × Smart Fab × Chemical Intelligence"
 };
 
 // 本期首页信号：每周只在数据层维护，页面会自动渲染。
 const WEEKLY_SIGNALS = [
-  { title: "AI 从 Pilot 进入 Scale", insight: "判断标准转向跨工厂复制能力与持续制造 KPI。" },
-  { title: "Agent 进入工程与运营工具链", insight: "价值焦点转向调用工具、编排任务与验证结果。" },
-  { title: "Digital Twin 成为 AI 验证环境", insight: "虚拟调试、Agent 决策验证与 Physical AI 训练开始汇合。" },
-  { title: "Physical AI 开始产品化", insight: "仿真、合成数据、Sim-to-Real 与机器人部署形成工程闭环。" }
+  { title: "AI 采用缺口开始被量化", insight: "制造业开始用长期 GDP 与产业能力缺口衡量延迟采用前沿技术的代价。" },
+  { title: "Smart Fab 走向自主决策", insight: "AI 检测、工业物联网、机器人与自主决策正在汇入统一工厂运营体系。" },
+  { title: "Physical AI 增加化学感知", insight: "边缘 AI 开始把泄漏、污染、工艺漂移等化学变化转化为机器可读信号。" },
+  { title: "自治工厂与能源系统合流", insight: "生产、物流、质量、维护与能源管理开始被设计为一个持续优化的工业系统。" }
 ];
 
 // 成熟度使用稳定枚举参与统计与筛选；历史中文值通过映射兼容。
@@ -152,6 +152,93 @@ const INTELLIGENCE_DATA = [
     "novelty": 2
   },
   {
+    "id": "I05",
+    "issue": "2026-W34",
+    "status": "新增",
+    "lib": "行业趋势",
+    "title": "印度制造业量化前沿技术采用缺口",
+    "date": "2026-08-20",
+    "publishedAt": "2026-08-20",
+    "discoveredAt": "2026-08-21",
+    "verifiedAt": "2026-08-21",
+    "freshness": "本期新增",
+    "org": "Angel One / ANI",
+    "summary": "Angel One测算，若印度未释放先进制造潜力，2047年制造业GDP缺口可能达到5.1万亿美元。",
+    "signal": "制造业AI的价值衡量正在从单项目ROI扩展到产业能力与长期经济增长缺口。",
+    "maps": [
+      "产品研发",
+      "工艺工程",
+      "生产执行",
+      "供应链/物流",
+      "机器人/自动化"
+    ],
+    "caps": [
+      "Industrial AI",
+      "Automation",
+      "Robotics",
+      "Advanced Manufacturing",
+      "Semiconductor"
+    ],
+    "url": "http://www.indiagazette.com/news/279253627/india-may-lose-usd-270-bn-manufacturing-gdp-by-2035-usd-1-tn-by-2047-without-frontier-tech-report",
+    "sourcePage": "https://economictimes.indiatimes.com/news/economy/indicators/india-may-lose-270-bn-manufacturing-gdp-by-2035-1-tn-by-2047-without-frontier-tech-report/articleshow/133368746.cms",
+    "coreDocumentUrl": null,
+    "evidenceStatus": "新闻正文已核验；Angel One核心报告待定位",
+    "maturityCode": "concept",
+    "maturity": "概念/趋势",
+    "impact": 5,
+    "novelty": 3,
+    "swot": {
+      "strength": "报告用2035年和2047年的经济缺口量化前沿技术采用价值，并明确点名AI、自动化、机器人和半导体等重点领域。",
+      "weakness": "当前仅核验新闻正文，Angel One原始报告、测算模型及三组经济数字的口径关系仍待确认。",
+      "opportunity": "可据此把制造AI方案的价值模型扩展到企业KPI、供应链自主性与关键产业能力建设。",
+      "threat": "宏观长期预测不能直接替代企业项目ROI，若缺少行业和工厂基线，容易形成过度外推。"
+    }
+  },
+  {
+    "id": "I06",
+    "issue": "2026-W34",
+    "status": "新增",
+    "lib": "行业趋势",
+    "title": "ITAP 2026推动工业AI从试点走向商业部署",
+    "date": "2026-08-18",
+    "publishedAt": "2026-08-18",
+    "discoveredAt": "2026-08-21",
+    "verifiedAt": "2026-08-21",
+    "freshness": "本期新增",
+    "org": "Deutsche Messe / Singapore Manufacturing Federation",
+    "summary": "ITAP 2026重启并聚焦工业AI、自动化、智能制造、先进机器人及从试点到商业部署的集成路径。",
+    "signal": "亚太制造业的关注点正转向投资回报、系统集成与中小企业可执行的规模化采用路径。",
+    "maps": [
+      "工艺工程",
+      "生产执行",
+      "工厂工程",
+      "现场作业",
+      "机器人/自动化"
+    ],
+    "caps": [
+      "Industrial AI",
+      "Automation",
+      "Smart Manufacturing",
+      "Physical AI",
+      "Humanoid Robotics",
+      "Digitalisation"
+    ],
+    "url": "http://www.asiabulletin.com/news/279248848/deutsche-messe-and-singapore-manufacturing-federation-relaunch-itap-2026",
+    "sourcePage": "https://industrial-transformation.com/",
+    "coreDocumentUrl": null,
+    "evidenceStatus": "活动新闻稿已核验；落地案例与KPI待活动后验证",
+    "maturityCode": "concept",
+    "maturity": "概念/趋势",
+    "impact": 4,
+    "novelty": 3,
+    "swot": {
+      "strength": "活动将工业AI、自动化、智能制造和Physical AI置于同一落地议程，并明确关注从试点到商业部署。",
+      "weakness": "当前证据属于活动重启和议程发布，尚未提供制造项目交付结果或量化KPI。",
+      "opportunity": "可将ITAP作为亚太制造需求、供应商方案和中小企业采用路径的持续观察窗口。",
+      "threat": "活动主题热度未必转化为实际投资，需在会后核对采购动作、合作项目和量产案例。"
+    }
+  },
+  {
     "id": "T01",
     "lib": "技术趋势",
     "title": "2026 Roadmap on AI and ML for Smart Manufacturing",
@@ -253,6 +340,50 @@ const INTELLIGENCE_DATA = [
     "maturity": "试验",
     "impact": 5,
     "novelty": 5
+  },
+  {
+    "id": "T05",
+    "issue": "2026-W34",
+    "status": "新增",
+    "lib": "技术趋势",
+    "title": "SEMICON Taiwan强化AI驱动Smart Fab",
+    "date": "2026-08-19",
+    "publishedAt": "2026-08-19",
+    "discoveredAt": "2026-08-21",
+    "verifiedAt": "2026-08-21",
+    "freshness": "本期新增",
+    "org": "SEMI / SEMICON Taiwan",
+    "summary": "SEMICON Taiwan 2026首次设置Smart Fab Zone，重点展示AI检测、工业物联网、机器人与自主决策。",
+    "signal": "半导体制造正把AI从单点质量检测扩展到设备、工艺、质量和自主决策协同的工厂运营体系。",
+    "maps": [
+      "工艺工程",
+      "生产执行",
+      "质量",
+      "设备维护",
+      "机器人/自动化"
+    ],
+    "caps": [
+      "Smart Fab",
+      "AI Inspection",
+      "Industrial IoT",
+      "Robotics",
+      "Autonomous Decision-making",
+      "Advanced Packaging"
+    ],
+    "url": "https://en.prnasia.com/releases/apac/semicon-taiwan-2026-highlights-ai-driven-manufacturing-transformation-544452.shtml",
+    "sourcePage": "https://www.semicontaiwan.org/en/Smart_Fab_Zone",
+    "coreDocumentUrl": null,
+    "evidenceStatus": "SEMI新闻稿与官方专区已核验",
+    "maturityCode": "concept",
+    "maturity": "概念/趋势",
+    "impact": 5,
+    "novelty": 4,
+    "swot": {
+      "strength": "新闻明确列出AI检测、工业物联网、机器人和自主决策能力，Smart Manufacturing Pavilion规模同比增长20%。",
+      "weakness": "公开材料以展会主题和市场预测为主，尚未给出具体晶圆厂的运行KPI与参考架构。",
+      "opportunity": "可围绕设备、工艺、质量和维护数据构建跨域Smart Fab方案，并跟踪先进封装带来的新制造场景。",
+      "threat": "多厂商设备与OT系统的互操作、安全和数据语义差异可能限制自主决策能力的复制。"
+    }
   },
   {
     "id": "P01",
@@ -369,6 +500,49 @@ const INTELLIGENCE_DATA = [
     "novelty": 5
   },
   {
+    "id": "P06",
+    "issue": "2026-W34",
+    "status": "新增",
+    "lib": "新兴产品",
+    "title": "Ainos第二代AI Nose增加Physical AI化学感知",
+    "date": "2026-08-17",
+    "publishedAt": "2026-08-17",
+    "discoveredAt": "2026-08-21",
+    "verifiedAt": "2026-08-21",
+    "freshness": "本期新增",
+    "org": "Ainos",
+    "summary": "第二代AI Nose升级Edge AI、气流、泵、模块化维护、云端管理与OTA能力，面向工业环境24×7运行。",
+    "signal": "Physical AI的感知层正从视觉和声音扩展到化学信号，为工艺漂移、泄漏和材料劣化提供早期异常入口。",
+    "maps": [
+      "生产执行",
+      "质量",
+      "设备维护",
+      "现场作业"
+    ],
+    "caps": [
+      "Chemical Intelligence",
+      "Edge AI",
+      "Physical AI",
+      "Industrial Sensing",
+      "Fleet Management",
+      "OTA"
+    ],
+    "url": "https://www.accessnewswire.com/newsroom/en/computers-technology-and-internet/ainos-unveils-next-generation-ai-nose-advancing-the-infrastructur-1205419",
+    "sourcePage": "https://www.ainos.com/news/",
+    "coreDocumentUrl": null,
+    "evidenceStatus": "厂商新闻稿已核验；性能指标与交付状态待验证",
+    "maturityCode": "announced",
+    "maturity": "已发布",
+    "impact": 4,
+    "novelty": 5,
+    "swot": {
+      "strength": "产品把Edge AI、OTA、模块化维护和云端设备管理组合为面向连续工业部署的完整节点能力。",
+      "weakness": "8.78亿条气味数据为厂商自报，尚无第三方准确率、误报率、漂移和长期可靠性验证。",
+      "opportunity": "可在半导体制造、工业安全、设备维护和质量监测中补足视觉与传统阈值传感器的感知盲区。",
+      "threat": "现场气体交叉干扰、传感器漂移、维护周期和OT告警集成可能影响规模化使用。"
+    }
+  },
+  {
     "id": "S01",
     "lib": "前沿方案",
     "title": "Agentic Software-defined Manufacturing — Schneider + Microsoft",
@@ -462,5 +636,50 @@ const INTELLIGENCE_DATA = [
     "maturity": "蓝图/试验",
     "impact": 5,
     "novelty": 5
+  },
+  {
+    "id": "S05",
+    "issue": "2026-W34",
+    "status": "新增",
+    "lib": "前沿方案",
+    "title": "Statetron发布自治能源一体化工厂架构",
+    "date": "2026-08-19",
+    "publishedAt": "2026-08-19",
+    "discoveredAt": "2026-08-21",
+    "verifiedAt": "2026-08-21",
+    "freshness": "本期新增",
+    "org": "Statetron",
+    "summary": "Andromean Class把AI生产、机器人装配、自主物流、数字孪生、自动质量和能源管理整合为统一工业架构。",
+    "signal": "工厂正在被设计为生产系统与能源系统共同优化的自治基础设施，但当前仍属于待验证蓝图。",
+    "maps": [
+      "工厂工程",
+      "生产执行",
+      "质量",
+      "设备维护",
+      "供应链/物流",
+      "机器人/自动化"
+    ],
+    "caps": [
+      "AI-driven Production",
+      "Robotic Assembly",
+      "Autonomous Logistics",
+      "Digital Twin",
+      "Automated Quality",
+      "Energy Management"
+    ],
+    "url": "https://www.prnewswire.com/news-releases/statetron-introduces-andromean-class-302855096.html",
+    "sourcePage": "https://www.statetron.com/",
+    "coreDocumentUrl": null,
+    "evidenceStatus": "原始新闻稿已核验；项目建设与投产证据待确认",
+    "maturityCode": "concept",
+    "maturity": "概念/趋势",
+    "impact": 4,
+    "novelty": 5,
+    "swot": {
+      "strength": "方案把生产、机器人、物流、质量、维护和能源管理统一到一个工厂级架构中。",
+      "weakness": "首个卡塔尔设施仍以proposed和concept描述，缺少投资、工期、合作方及投产证据。",
+      "opportunity": "可为储能、半导体等高能耗工厂提供数字孪生、自治运营与能源协同的方案蓝图。",
+      "threat": "高资本投入、跨OT与能源系统集成、监管许可和项目进度可能削弱蓝图的可实现性。"
+    }
   }
 ];
